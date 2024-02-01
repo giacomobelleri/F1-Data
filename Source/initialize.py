@@ -15,6 +15,7 @@ class Initializer:
             self.initialize()
             Initializer.initialized = True
     
+    # Initializes the cache:
     def initialize_cache(self):
         
         # Saves start time(s):
