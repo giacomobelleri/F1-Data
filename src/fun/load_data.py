@@ -9,11 +9,7 @@ import sys
 import fastf1 as ff1
 import pandas as pd
 
-# Allow for configuration to run if it did not already
-pardir = op.dirname(op.dirname(op.abspath(__file__)))
-sys.path.append(op.join(pardir, 'cfg'))
-from config import ConfigInitializer
-
+from src.cfg.config import ConfigInitializer
 
 # Introduces Testing Variables [https://docs.fastf1.dev/events.html#sessionidentifier |Session Identifiers]
 if __name__ == '__main__':
