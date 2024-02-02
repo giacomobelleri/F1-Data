@@ -35,7 +35,7 @@ class ConfigInitializer:
         
         # Adds the source folder to the path
         sys.path.append(dir.src)
-        sys.path.append(dir.cfg)
+        #sys.path.append(dir.cfg) not necessary as to import file from cfg you need to append it anyways
         sys.path.append(dir.fun)
         print("Path(s) configured")
         return None
