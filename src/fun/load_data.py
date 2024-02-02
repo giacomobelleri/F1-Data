@@ -11,8 +11,6 @@ import sys
 sys.path.append('src/cfg')
 from config import ConfigInitializer
 
-ConfigInitializer()
-
 # Introduces Testing Variables [https://docs.fastf1.dev/events.html#sessionidentifier |Session Identifiers]
 if __name__ == '__main__':
     session_year = 2021
