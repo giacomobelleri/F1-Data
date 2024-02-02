@@ -6,6 +6,7 @@ import os
 import sys
 import time
 import fastf1 as ff1
+from cfg.directory import Directory as dir
 
 # Class of initialisation procedures
 class ConfigInitializer:
@@ -33,9 +34,9 @@ class ConfigInitializer:
         '''
         
         # Adds the source folder to the path
-        sys.path.append(Directory.src)
-        sys.path.append(Directory.cfg)
-        sys.path.append(Directory.fun)
+        sys.path.append(dir.src)
+        sys.path.append(dir.cfg)
+        sys.path.append(dir.fun)
         print("Path(s) configured")
         return None
     
@@ -56,7 +57,7 @@ class ConfigInitializer:
             exec_start_time = time.process_time()
         
         # Sets global cache directory to "Cache"
-        cache_dir = r"C:\\Users\\giaco\Documents\\F1-Data-Analysis\\cache"
+        cache_dir = dir.cache
         os.makedirs(cache_dir, exist_ok=True) # Creates the cache folder if it doesn't exist
         ff1.Cache.enable_cache(cache_dir)     # Enables the cache on "Cache"
         print("Cache configured")
@@ -77,5 +78,3 @@ class ConfigInitializer:
 
 # Initializes the configuration
 ConfigInitializer()
-
-print (f"Directory.parent: {Directory.parent}")
