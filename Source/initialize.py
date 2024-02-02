@@ -3,7 +3,6 @@ import os
 import time
 import fastf1 as ff1 # Import fastf1
 
-
 class Initializer:
     
     # Initilized flag to avoid multiple initializations
