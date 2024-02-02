@@ -13,17 +13,18 @@ class ConfigInitializer:
     configured = False
     
     # Initializes processess:
-    def __init__(self):
-        if not ConfigInitializer.configured:
-            self.initialize_path()
-            self.initialize_cache()
-            ConfigInitializer.configured = True
-            print(f"\n{__file__.split("\\")[-1]} ran succesfully. \n")
+    def Initialize(cls):
+        if not cls.configured:
+            print(f"\nRunning {__file__.split('\\')[-1]}...")
+            cls.initialize_path()
+            cls.initialize_cache()
+            cls.configured = True
+            print(f"{__file__.split("\\")[-1]} ran succesfully. \n")
         else:
             print("Already configured")
     
     @classmethod
-    def initialize_path(self):
+    def initialize_path(cls):
         '''Initializes the path for the project.
             
             Args:
@@ -41,7 +42,7 @@ class ConfigInitializer:
         return None
     
     @classmethod
-    def initialize_cache(self):
+    def initialize_cache(cls):
         '''Initializes the cache for the fastf1 library.
             
             Args:
@@ -70,11 +71,11 @@ class ConfigInitializer:
                 
             # Prints the time it took to run the script:
             print("Cache created succesfully. \n" +
-                  f" -> Cache directory: {cache_dir} \n" +
-                  f" -> Cache creation time: {(clock_end_time - clock_start_time):.5f} s \n" + 
-                  f" -> Cache creation CPU time: {(exec_end_time - exec_start_time):.5f} s \n" )
+                    f" -> Cache directory: {cache_dir} \n" +
+                    f" -> Cache creation time: {(clock_end_time - clock_start_time):.5f} s \n" + 
+                    f" -> Cache creation CPU time: {(exec_end_time - exec_start_time):.5f} s \n" )
             
         return None
 
 # Initializes the configuration
-ConfigInitializer()
+ConfigInitializer.Initialize(cls=ConfigInitializer)

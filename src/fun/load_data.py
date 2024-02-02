@@ -8,8 +8,7 @@ import os.path as op
 import sys
 import fastf1 as ff1
 import pandas as pd
-
-from src.cfg.config import ConfigInitializer
+import src.cfg
 
 # Introduces Testing Variables [https://docs.fastf1.dev/events.html#sessionidentifier |Session Identifiers]
 if __name__ == '__main__':
@@ -18,3 +17,20 @@ if __name__ == '__main__':
 
 # Loads the data from the F1 API
 print("Loading data from the F1 API...")
+
+if __name__ == '__main__':
+    session_year = 2021
+    session_type = 'R'                      
+    session_name = 'Monaco Grand Prix'
+
+# Loads the data from the F1 API
+def load_session(year, type, name):
+    session = ff1.get_session(year, type, name)
+    session.load()
+    print(f"Data from {year} {type} '{name}' loaded")
+    return session
+
+
+if __name__ == '__main__':
+    data = load_session(session_year, session_name, session_type)
+    print(f"\n {data.laps.head()}")
