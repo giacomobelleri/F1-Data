@@ -13,9 +13,6 @@ from src.cfg.config import ConfigInitializer
 
 # Introduces Testing Variables [https://docs.fastf1.dev/events.html#sessionidentifier |Session Identifiers]
 if __name__ == '__main__':
-    session_year = 2021
-    session_type = 'R'                      
-    session_name = 'Monaco Grand Prix'
     cache_info = ff1.Cache.get_cache_info() # Prints the cache info
     print(f"Cache info: {cache_info} \n")
 
