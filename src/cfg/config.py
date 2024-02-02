@@ -13,7 +13,7 @@ class ConfigInitializer:
     configured = False
     
     # Initializes processess:
-    def Initialize(cls):
+    def __init__(cls):
         if not cls.configured:
             print(f"\nRunning {__file__.split('\\')[-1]}...")
             cls.initialize_path()
@@ -36,7 +36,7 @@ class ConfigInitializer:
         
         # Adds the source folder to the path
         sys.path.append(dir.src)
-        #sys.path.append(dir.cfg) not necessary as to import file from cfg you need to append it anyways
+        sys.path.append(dir.cfg) 
         sys.path.append(dir.fun)
         print("Path(s) configured")
         return None
@@ -78,4 +78,4 @@ class ConfigInitializer:
         return None
 
 # Initializes the configuration
-ConfigInitializer.Initialize(cls=ConfigInitializer)
+ConfigInitializer()

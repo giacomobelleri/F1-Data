@@ -2,13 +2,12 @@
 #  -> This file contains the functions to load the data from the F1 API
 #  -> Saves the data in .csv format in the data folder
 
-
 # Imports relevant libraries
 import os.path as op
 import sys
 import fastf1 as ff1
 import pandas as pd
-import src.cfg
+import src.cfg.config
 
 # Introduces Testing Variables [https://docs.fastf1.dev/events.html#sessionidentifier |Session Identifiers]
 if __name__ == '__main__':
@@ -29,7 +28,6 @@ def load_session(year, type, name):
     session.load()
     print(f"Data from {year} {type} '{name}' loaded")
     return session
-
 
 if __name__ == '__main__':
     data = load_session(session_year, session_name, session_type)

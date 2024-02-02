@@ -15,5 +15,3 @@ class Directory:
     src = op.join(parent, 'src')     # Source directory
     cfg = op.join(src, 'cfg')     # Config directory
     fun = op.join(src, 'fun')       # Function directory
-    
-print(Directory.parent)
