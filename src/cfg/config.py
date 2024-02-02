@@ -6,7 +6,7 @@ import os
 import sys
 import time
 import fastf1 as ff1
-from cfg.directory import Directory as dir
+from directory import Directory as dir
 
 # Class of initialisation procedures
 class ConfigInitializer:

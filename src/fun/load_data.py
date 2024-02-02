@@ -5,8 +5,13 @@
 # Imports relevant libraries
 import fastf1 as ff1
 import pandas as pd
-from src.cfg import config
+import sys 
 
+# Imports relevant packages
+sys.path.append('src/cfg')
+from config import ConfigInitializer
+
+ConfigInitializer()
 
 # Introduces Testing Variables [https://docs.fastf1.dev/events.html#sessionidentifier |Session Identifiers]
 if __name__ == '__main__':
