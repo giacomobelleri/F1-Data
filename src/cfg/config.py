@@ -1,11 +1,17 @@
 # This file is used to configure the project.
 # It sets the path and cache for the project.
+# It also initializes the plotting configuration for the project.
 
-# Importing relevant files:
+# Importing Basic Packages
 import os
 import sys
 import time
+
+# Imports the fastf1 library
 import fastf1 as ff1
+import fastf1.plotting as ff1plt
+
+#Imports the project's directories
 from src.cfg.directory import Directory as dir
 
 # Class of initialisation procedures
@@ -75,6 +81,21 @@ class ConfigInitializer:
                     f" -> Cache creation time: {(clock_end_time - clock_start_time):.5f} s \n" + 
                     f" -> Cache creation CPU time: {(exec_end_time - exec_start_time):.5f} s \n" )
             
+        return None
+    
+    def initialize_plt(cls):
+        '''Initializes the plotting configuration for the project.
+            
+            Args:
+                None
+            
+            Returns:
+                None
+        '''
+        
+        # Sets the plotting configuration
+        ff1plt.setup_mpl()
+        print("Plotting configured")
         return None
 
 # Initializes the configuration

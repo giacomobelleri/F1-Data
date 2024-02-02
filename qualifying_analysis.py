@@ -1,6 +1,8 @@
 # Import relevant packages
 import pandas as pd
 import fastf1 as ff1
+import fastf1.plotting as ff1plt
+import matplotlib.pyplot as plt
 
 # Importing the personalised modules
 import src.cfg
