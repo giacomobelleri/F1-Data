@@ -5,6 +5,8 @@
 # Imports relevant libraries
 import fastf1 as ff1
 import pandas as pd
+from src.cfg import config
+
 
 # Introduces Testing Variables [https://docs.fastf1.dev/events.html#sessionidentifier |Session Identifiers]
 if __name__ == '__main__':
@@ -15,3 +17,4 @@ if __name__ == '__main__':
     print(f"Cache info: {cache_info} \n")
 
 # Loads the data from the F1 API
+print("Loading data from the F1 API...")
