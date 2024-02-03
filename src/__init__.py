@@ -14,28 +14,7 @@ import fastf1 as ff1
 import fastf1.plotting as ff1plt
 
 # Importing the personalised modules
-from src import cfg
-
-# Class of Directories 
-class Directory:
-    
-    # Parent Directory
-    parent = op.dirname(op.dirname(op.abspath(__file__)))
-    
-    # Subdirectories
-    cache = op.join(parent, 'cache') # Cache directory
-    data = op.join(parent, 'data')   # Data directory
-    src = op.join(parent, 'src')     # Source directory
-    cfg = op.join(src, 'cfg')        # Config directory
-    fun = op.join(src, 'fun')        # Function directory
-    
-    if __name__ == '__main__':
-        print(f"Parent directory: {parent}")
-        print(f"Cache directory: {cache}")
-        print(f"Data directory: {data}")
-        print(f"Source directory: {src}")
-        print(f"Config directory: {cfg}")
-        print(f"Function directory: {fun} \n")
+from src.cfg.directory import Directory
 
 # Class of initialisation procedures
 class ConfigInitializer:
@@ -44,12 +23,12 @@ class ConfigInitializer:
     # Initializes processess:
     def __init__(cls):
         if not cls.configured:
-            print(f"\nRunning {__file__.split('\\')[-1]}...")
+            print(f"\nInitializing {__file__.split('\\')[-2]}...")
             cls.initialize_path()
             cls.initialize_cache()
             cls.initialize_plt()
             cls.configured = True
-            print(f"{__file__.split("\\")[-1]} ran succesfully. \n")
+            print(f"{__file__.split("\\")[-2]} initialised succesfully. \n")
         else:
             print("Already configured")
     
@@ -68,7 +47,7 @@ class ConfigInitializer:
         sys.path.append(Directory.src)
         sys.path.append(Directory.cfg) 
         sys.path.append(Directory.fun)
-        print("Path(s) configured")
+        print("-> Path(s) configured")
         return None
     
     @classmethod
@@ -91,8 +70,8 @@ class ConfigInitializer:
         cache_dir = Directory.cache
         os.makedirs(cache_dir, exist_ok=True) # Creates the cache folder if it doesn't exist
         ff1.Cache.enable_cache(cache_dir)     # Enables the cache on "Cache"
-        print("Cache configured")
-        print(f"Cache directory: {cache_dir}")
+        print("-> Cache configured")
+        print(f"--> Cache directory: {cache_dir}")
         
         # Prints script information:
         if __name__ == '__main__':
@@ -108,6 +87,20 @@ class ConfigInitializer:
             
         return None
     
+    def initialize_data(cls):
+        '''Initializes the data for the project.
+            
+            Args:
+                None
+            
+            Returns:
+                None
+        '''
+        
+        # Sets the data directory
+        data_dir = Directory.data
+        os.makedirs(data_dir, exist_ok=True)
+    
     def initialize_plt(cls):
         '''Initializes the plotting configuration for the project.
             
@@ -120,7 +113,7 @@ class ConfigInitializer:
         
         # Sets the plotting configuration
         ff1plt.setup_mpl()
-        print("Plotting configured")
+        print("-> Plotting configured")
         return None
 
 # Initializes the configuration

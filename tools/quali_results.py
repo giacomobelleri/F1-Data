@@ -12,6 +12,8 @@ session_year = 2021
 session_name = 'Monaco Grand Prix'
 session_type = 'Q'
 
-# Loads the Qualifying data from the F1 API
+# Loads the Qualifying Laps data from the F1 API
 data = ld.load_session(session_year, session_name, session_type)
-print(f"\n {data.results}")
+laps = data.laps
+
+
