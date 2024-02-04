@@ -9,6 +9,11 @@ import fastf1 as ff1
 from src.cfg.directory import Directory
 
 def check_validity(year, name):
+    '''Checks if the session identifiers are valid.'''
+    
+    schedule = ff1.get_event_schedule(year)
+    print(f"Schedule for {year}: {schedule}")
+    
     return
 
 def save_session(session, year, type, name):
@@ -72,3 +77,6 @@ if __name__ == '__main__':
     session_name = 'Monaco Grand Prix'
     data = load_session(session_year, session_name, session_type)
     print(f"\n {data.laps.head()}")
+    
+    check_validity(session_year, session_name) # Checks the validity of the session identifiers
+    print("Done!") # Prints the end-of-program message
